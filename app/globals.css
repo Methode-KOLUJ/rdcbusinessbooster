@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+@theme {
+  /* ===== Vert / brand (#1a673d) ===== */
+  --color-brand-50: #eef8f1;
+  --color-brand-100: #d5eddd;
+  --color-brand-200: #abdcbf;
+  --color-brand-300: #78c49b;
+  --color-brand-400: #46a573;
+  --color-brand-500: #23874f;
+  --color-brand-600: #1a673d;
+  --color-brand-700: #155633;
+  --color-brand-800: #124528;
+  --color-brand-900: #0d341f;
+  --color-brand-950: #082417;
+
+  /* ===== Orange / accent (#f19102) ===== */
+  --color-orange-50: #fef7eb;
+  --color-orange-100: #fdecd2;
+  --color-orange-200: #fad8a4;
+  --color-orange-300: #f6bc6b;
+  --color-orange-400: #f39d33;
+  --color-orange-500: #f19102;
+  --color-orange-600: #d67d02;
+  --color-orange-700: #b26608;
+  --color-orange-800: #8f4f0c;
+  --color-orange-900: #75400d;
+
+  /* ===== Bleu / info (#1870b8) ===== */
+  --color-blue-50: #eef7fc;
+  --color-blue-100: #d4ebf7;
+  --color-blue-200: #a9d6ef;
+  --color-blue-300: #73b9e2;
+  --color-blue-400: #3697d2;
+  --color-blue-500: #1a7ec1;
+  --color-blue-600: #1870b8;
+  --color-blue-700: #155a97;
+  --color-blue-800: #144c7c;
+  --color-blue-900: #143f67;
+
+  /* ===== Noir & blanc ===== */
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  /* ===== Neutres chauds ===== */
+  --color-cream: #fdfcf8;
+  --color-ink: #0d1f16;
+
+  /* ===== Sémantiques ===== */
+  --color-success: #1a673d;
+  --color-warning: #f19102;
+  --color-info: #1870b8;
+  --color-danger: #dc2626;
+
+  /* ===== Raccourcis ===== */
+  --color-primary: #1a673d;
+  --color-primary-dark: #155633;
+  --color-accent: #f19102;
+  --color-accent-light: #f39d33;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial,
+    sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
