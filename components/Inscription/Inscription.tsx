@@ -167,7 +167,6 @@ const Inscription = () => {
                   <input
                     id="nom"
                     type="text"
-                    placeholder="Nom complet"
                     value={form.nom}
                     onChange={(e) => update("nom", e.target.value)}
                     className={inputClass}
@@ -186,7 +185,6 @@ const Inscription = () => {
                   <input
                     id="email"
                     type="email"
-                    placeholder="Adresse mail correct"
                     value={form.email}
                     onChange={(e) => update("email", e.target.value)}
                     className={inputClass}
@@ -205,7 +203,6 @@ const Inscription = () => {
                   <input
                     id="telephone"
                     type="tel"
-                    placeholder="+243 000 000 000"
                     value={form.telephone}
                     onChange={(e) => update("telephone", e.target.value)}
                     className={inputClass}
@@ -260,7 +257,7 @@ const Inscription = () => {
                     <span className="text-sm md:text-base leading-relaxed">
                       Je certifie avoir pris connaissance de toutes les
                       directives du programme{" "}
-                      <span className="font-semibold">
+                      <span className="font-mono">
                         RDC Agro Business Booster
                       </span>
                       .
