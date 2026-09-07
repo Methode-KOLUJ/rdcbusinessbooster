@@ -171,7 +171,7 @@ const Check = () => (
 );
 
 const StepCard = ({ step }: { step: Step }) => (
-  <div className="rounded-3xl bg-white p-8 transition-all sm:p-12">
+  <div className="rounded-lg bg-white p-8 transition-all sm:p-12">
     <div className="mb-8 flex items-start gap-6">
       <span className="text-6xl md:text-8xl font-black leading-[0.8] tracking-tight text-blue-700/60 select-none">
         {step.num}
@@ -257,15 +257,29 @@ const CommentParticiper = () => {
         </div>
       </section>
 
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="space-y-10">
-            {steps.map((step) => (
-              <StepCard key={step.num} step={step} />
-            ))}
-          </div>
-        </div>
-      </section>
+    <section className="relative overflow-hidden py-24">
+  {/* Background + Parallax + Overlay */}
+  <div className="absolute inset-0 z-0">
+    <div
+      className="absolute inset-0 bg-cover bg-center bg-fixed"
+      style={{
+        backgroundImage:
+          "url('https://res.cloudinary.com/dnpggdqyl/image/upload/v1788767149/comment_pbruxw.jpg')",
+      }}
+    />
+
+    <div className="absolute inset-0 bg-white/50" />
+  </div>
+
+  {/* Contenu */}
+  <div className="relative z-10 mx-auto max-w-7xl px-6">
+    <div className="space-y-10">
+      {steps.map((step) => (
+        <StepCard key={step.num} step={step} />
+      ))}
+    </div>
+  </div>
+</section>
     </>
   );
 };
