@@ -188,10 +188,26 @@ const Financement = () => {
         </div>
       </section>
 
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="relative overflow-hidden py-24">
+  {/* Background + Parallax + Overlay */}
+  <div className="absolute inset-0 z-0">
+    {/* Image Parallax */}
+    <div
+      className="absolute inset-0 bg-cover bg-center bg-fixed"
+      style={{
+        backgroundImage:
+          "url('https://res.cloudinary.com/dnpggdqyl/image/upload/v1788767698/finance_tjvzuc.jpg')",
+      }}
+    />
+
+    {/* Overlay */}
+    <div className="absolute inset-0 bg-white/75" />
+  </div>
+
+  {/* Contenu */}
+  <div className="relative z-10 mx-auto max-w-7xl px-6">
           {/* Source 1 : FOGEC */}
-          <div className="mb-24">
+          <div className="mb-24 bg-white/90 p-8 rounded-lg">
             <div className="mb-10">
               <div className="mb-8 flex items-start gap-6">
                 <SectionNumber number="01" />
@@ -216,7 +232,7 @@ const Financement = () => {
           </div>
 
           {/* Source 2 : Banque Mondiale */}
-          <div className="mb-24">
+          <div className="mb-24 bg-white/90 p-8 rounded-lg">
             <div className="mb-10">
               <div className="mb-8 flex items-start gap-6">
                 <SectionNumber number="02" />
@@ -241,7 +257,7 @@ const Financement = () => {
           </div>
 
           {/* Condition d'obtention */}
-          <div className="mb-24">
+          <div className="mb-24 bg-white/90 p-8 rounded-lg">
             <h2 className="mb-6 text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-primary">
               Condition d&apos;obtention
             </h2>
@@ -341,7 +357,7 @@ const Financement = () => {
           </div>
 
           {/* Pourquoi pas d'argent liquide */}
-          <div className="mb-24">
+          <div className="mb-24 bg-white/90 p-8 rounded-lg">
             <h2 className="mb-10 text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-primary">
               Pourquoi l&apos;argent n&apos;est pas donné aux
               membres&nbsp;?
@@ -409,7 +425,7 @@ const Financement = () => {
           </div>
 
           {/* Notre solution */}
-          <div className="mb-24">
+          <div className="mb-24 bg-white/90 p-8 rounded-lg">
             <h2 className="mb-10 text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-primary">
               Notre solution
             </h2>
@@ -417,41 +433,6 @@ const Financement = () => {
               headers={["Mécanisme", "Comment ça marche ?"]}
               rows={solution.map((s) => [s.mecanisme, s.detail])}
             />
-          </div>
-
-          {/* En résumé */}
-          <div className="overflow-hidden hidden rounded-lg bg-gradient-to-br from-brand-600 to-brand-800 p-10 text-white shadow-2xl shadow-brand-600/20 sm:p-14">
-            <p className="max-w-6xl text-lg md:text-xl leading-relaxed text-white/90">
-              Vous ne recevez pas de l&apos;argent liquide. Vous recevez une{" "}
-              <strong className="font-semibold text-white">
-                exploitation agricole clé en main
-              </strong>{" "}
-              (tracteur, semences, irrigation, magasin, etc.). Tout est acheté,
-              livré et installé par{" "}
-              <strong className="font-semibold text-white">
-                AGANO Services &amp; Consultances Sarl
-              </strong>
-              . La coopérative devient{" "}
-              <strong className="font-semibold text-white">
-                propriétaire de tous les actifs
-              </strong>
-              . C&apos;est ce système qui garantit le succès du programme et la
-              confiance de nos partenaires (FOGEC, Banque Mondiale, etc.).
-            </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Link
-                href="/inscription"
-                className="rounded-xl bg-accent px-8 py-4 text-base font-bold text-white shadow-xl shadow-black/20 transition-all hover:scale-105 hover:bg-orange-600"
-              >
-                Je veux lancer ma coopérative !
-              </Link>
-              <Link
-                href="/comment-participer"
-                className="rounded-xl border-2 border-white/70 px-8 py-4 text-base font-bold text-white transition-all hover:bg-white hover:text-brand-700"
-              >
-                Comment participer ?
-              </Link>
-            </div>
           </div>
         </div>
       </section>

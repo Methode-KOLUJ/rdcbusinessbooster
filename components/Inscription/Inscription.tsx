@@ -95,8 +95,27 @@ const Inscription = () => {
         </div>
       </section>
 
-      <section className="bg-gray-100 py-24" id="formulaire">
-        <div className="mx-auto max-w-3xl px-6">
+<section
+  className="relative overflow-hidden py-24"
+  id="formulaire"
+>
+  {/* Background + Parallax + Overlay */}
+  <div className="absolute inset-0 z-0">
+    {/* Image Parallax */}
+    <div
+      className="absolute inset-0 bg-cover bg-center bg-fixed"
+      style={{
+        backgroundImage:
+          "url('https://res.cloudinary.com/dnpggdqyl/image/upload/v1788767153/inscription_le35up.jpg')",
+      }}
+    />
+
+    {/* Overlay */}
+    <div className="absolute inset-0 bg-gray-100/85" />
+  </div>
+
+  {/* Contenu */}
+  <div className="relative z-10 mx-auto max-w-3xl px-6">
           {submitted ? (
             <div className="rounded-xl border z-50 border-brand-600/20 bg-white p-2 text-center shadow-xl shadow-brand-600/5 sm:p-14">
               <span className="mx-auto mb-6 grid size-16 place-items-center rounded-full bg-brand-600 text-white">
