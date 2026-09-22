@@ -155,8 +155,8 @@ const About = () => {
               <span className="font-mono text-brand-700">
                 80 millions 
               </span> d&apos;hectares{" "}
-              de terres arables — le plus grand potentiel agricole
-              d&apos;Afrique — pourtant le constat est amer :
+              de terres arables, le plus grand potentiel agricole
+              d&apos;Afrique. Pourtant le constat reste amer :
             </p>
           </div>
 

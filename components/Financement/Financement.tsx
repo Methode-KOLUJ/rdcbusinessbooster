@@ -15,11 +15,11 @@ const banqueMondiale: [string, string][] = [
   ["Nature", "Subvention de développement"],
   [
     "Remboursement",
-    "Aucun — c'est un investissement de l'État pour l'emploi des jeunes",
+    "Aucun, c'est un investissement de l'État pour l'emploi des jeunes",
   ],
   [
     "Disponibilité",
-    "À mobiliser — l'enveloppe est en cours de négociation avec la Banque Mondiale",
+    "À mobiliser, l'enveloppe est en cours de négociation avec la Banque Mondiale",
   ],
 ];
 
