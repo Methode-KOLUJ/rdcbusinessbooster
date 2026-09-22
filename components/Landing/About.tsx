@@ -1,5 +1,6 @@
 import React from "react";
 import { GraduationCap, Ship, Landmark, UserX } from "lucide-react";
+import Link from "next/link";
 
 const steps = [
   {
@@ -87,7 +88,7 @@ const About = () => {
             <p className="text-left text-lg md:text-xl leading-relaxed text-foreground/70">
               Le programme RDC Agro Business Booster est créé par la société{" "}
               <span className="font-mono">
-                <a href="anoservicesconsultances.com" target="_blank">AGANO Services &amp; Consultances Sarl</a>
+                <Link href={'aganoservicesconsultances.com'}>AGANO Services &amp; Consultances Sarl</Link>
               </span>
               . Ce programme transforme les jeunes Congolais en
               agri-entrepreneurs structurés, formés et financés. RDC Business
