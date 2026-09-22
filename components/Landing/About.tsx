@@ -88,7 +88,7 @@ const About = () => {
             <p className="text-left text-lg md:text-xl leading-relaxed text-foreground/70">
               Le programme RDC Agro Business Booster est créé par la société{" "}
               <span className="font-mono">
-                <Link href={'aganoservicesconsultances.com'}>AGANO Services &amp; Consultances Sarl</Link>
+                <a href="https://www.aganoservicesconsultances.com/" target="_blank">AGANO Services &amp; Consultances Sarl</a>
               </span>
               . Ce programme transforme les jeunes Congolais en
               agri-entrepreneurs structurés, formés et financés. RDC Business
