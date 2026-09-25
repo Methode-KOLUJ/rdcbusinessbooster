@@ -79,3 +79,14 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* PLACEHOLDER FLOTTANT */
+
+/* Le label remonte si l'input est focus OU si le placeholder n'est plus visible (texte tapé) */
+/* .input-container input:focus ~ .floating-label,
+.input-container input:not(:placeholder-shown) ~ .floating-label {
+  top: -10px;
+  left: 8px;
+  font-size: 12px;
+  color: #007bff;
+} */

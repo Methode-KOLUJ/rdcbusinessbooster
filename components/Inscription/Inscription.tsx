@@ -22,10 +22,10 @@ const initialForm: FormState = {
 };
 
 const inputClass =
-  "w-full rounded-xl border border-foreground/10 bg-white px-4 py-3 text-foreground outline-none transition-colors placeholder:text-foreground/40 focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20";
+  "peer w-full rounded-xl border border-foreground/10 bg-white px-4 py-3 text-foreground outline-none transition-colors focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20";
 
 const labelClass =
-  "mb-2 block text-sm md:text-base font-medium text-foreground";
+  "absolute left-3 -top-2.5 bg-white px-1 text-xs md:text-sm font-medium text-foreground/80 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-foreground/50 peer-focus:-top-2.5 peer-focus:text-xs md:peer-focus:text-sm peer-focus:text-brand-600 cursor-text pointer-events-none";
 
 const Inscription = () => {
   const [form, setForm] = useState<FormState>(initialForm);
@@ -34,6 +34,8 @@ const Inscription = () => {
   >({});
   const [submitted, setSubmitted] = useState(false);
 
+  const [loading, setLoading] = useState(false);
+
   const update = (field: keyof FormState, value: string | boolean) => {
     setForm((prev) => ({ ...prev, [field]: value }));
     if (errors[field]) {
@@ -41,7 +43,7 @@ const Inscription = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const next: typeof errors = {};
 
@@ -63,15 +65,82 @@ const Inscription = () => {
 
     setErrors(next);
     if (Object.keys(next).length === 0) {
-      setSubmitted(true);
+      setLoading(true);
+      try {
+        const res = await fetch("/api/inscription", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form),
+        });
+        
+        if (res.ok) {
+          setSubmitted(true);
+        } else {
+          console.error("Erreur lors de l'inscription");
+          // You could handle server errors here
+        }
+      } catch (error) {
+        console.error("Erreur réseau:", error);
+      } finally {
+        setLoading(false);
+      }
     }
   };
 
   return (
     <>
+      {submitted && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-gray-600/80 p-4 backdrop-blur-sm transition-all">
+          <div className="relative w-full max-w-lg rounded-xl border border-white/20 bg-white p-8 text-center shadow-2xl sm:p-12 animate-in zoom-in-95 fade-in duration-300">
+            <span className="mx-auto mb-6 grid size-20 place-items-center rounded-full bg-green-500 text-white shadow-lg shadow-green-500/30">
+              <svg
+                className="size-10"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="3"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+            </span>
+            <h2 className="mb-4 text-2xl md:text-3xl uppercase font-mono tracking-tight text-gray-900">
+              Candidature réussie !
+            </h2>
+            <p className="mx-auto mb-8 text-base md:text-lg leading-relaxed text-gray-600">
+              Cher(e) <strong className="text-brand-700">{form.nom}</strong>,
+              votre inscription a bien été reçue. Vous serez
+              contacté par notre équipe pour la suite du programme. Consultez votre boîte mail pour lire la confirmation.
+            </p>
+            <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
+              <Link
+                href="https://mail.google.com"
+                target="_blank"
+                className="inline-flex items-center justify-center rounded-lg bg-accent px-8 py-3.5 text-sm md:text-base font-bold text-white shadow-lg shadow-accent/30 transition-all hover:scale-105 hover:bg-orange-600"
+              >
+                Mon mail
+              </Link>
+              <button
+                onClick={() => {
+                    setSubmitted(false);
+                    setForm(initialForm);
+                }}
+                type="button"
+                className="inline-flex items-center justify-center rounded-lg bg-primary hover:bg-primary-dark cursor-pointer px-8 py-3.5 text-sm md:text-base font-bold text-gray-50 transition-all hover:bg-gray-200"
+              >
+                Fermer
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       {/* Page header */}
       <section
-        className="relative overflow-hidden bg-cover bg-center text-white py-20 sm:py-28 md:py-32 lg:py-40"
+        className="relative overflow-hidden bg-cover bg-center text-white py-20 sm:py-28 md:py-32 lg:py-42"
         style={{ backgroundImage: "url('https://res.cloudinary.com/dnpggdqyl/image/upload/v1788767153/inscription_le35up.jpg')" }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-brand-700/90 via-brand-800/80 to-brand-950/90" />
@@ -116,61 +185,26 @@ const Inscription = () => {
 
   {/* Contenu */}
   <div className="relative z-10 mx-auto max-w-3xl px-6">
-          {submitted ? (
-            <div className="rounded-xl border z-50 border-brand-600/20 bg-white p-2 text-center shadow-xl shadow-brand-600/5 sm:p-14">
-              <span className="mx-auto mb-6 grid size-16 place-items-center rounded-full bg-brand-600 text-white">
-                <svg
-                  className="size-8"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-              </span>
-              <h2 className="mb-6 text-2xl md:text-3xl uppercase font-black tracking-tight text-primary">
-                Candidature validée !
-              </h2>
-              <p className="mx-auto mb-8 max-w-lg text-lg leading-relaxed text-foreground/70">
-                Cher(e) <strong className="text-brand-700">{form.nom}</strong>,
-                votre inscription a bien été reçue. Vous serez
-                contacté par notre équipe pour la suite du programme. Consultez quotidiennement votre <strong> boîte mail</strong>.
-              </p>
-              <Link
-                href="/"
-                className="inline-block rounded-lg bg-accent px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-accent/30 transition-all hover:scale-105 hover:bg-orange-600"
-              >
-                Retour à l&apos;accueil
-              </Link>
-            </div>
-          ) : (
+
             <form
               onSubmit={handleSubmit}
               noValidate
               className="rounded-lg border border-foreground/10 bg-white p-8 shadow-xl shadow-brand-600/5 sm:p-10"
             >
-              <h2 className="mb-8 md:mb-10 text-2xl uppercase md:text-3xl lg:text-5xl text-center font-black tracking-tight text-blue-700">
-                Inscription
-              </h2>
 
               <div className="space-y-6">
-                <div>
-                  <label htmlFor="nom" className={labelClass}>
-                    Votre Nom
-                  </label>
+                <div className="relative">
                   <input
                     id="nom"
                     type="text"
                     value={form.nom}
                     onChange={(e) => update("nom", e.target.value)}
                     className={inputClass}
+                    placeholder=" "
                   />
+                  <label htmlFor="nom" className={labelClass}>
+                    Nom complet
+                  </label>
                   {errors.nom && (
                     <p className="mt-1.5 text-sm font-medium text-danger">
                       {errors.nom}
@@ -178,17 +212,18 @@ const Inscription = () => {
                   )}
                 </div>
 
-                <div>
-                  <label htmlFor="email" className={labelClass}>
-                    Adresse email
-                  </label>
+                <div className="relative">
                   <input
                     id="email"
                     type="email"
                     value={form.email}
                     onChange={(e) => update("email", e.target.value)}
                     className={inputClass}
+                    placeholder=" "
                   />
+                  <label htmlFor="email" className={labelClass}>
+                    Adresse email
+                  </label>
                   {errors.email && (
                     <p className="mt-1.5 text-sm font-medium text-danger">
                       {errors.email}
@@ -196,17 +231,18 @@ const Inscription = () => {
                   )}
                 </div>
 
-                <div>
-                  <label htmlFor="telephone" className={labelClass}>
-                    Numéro de téléphone
-                  </label>
+                <div className="relative">
                   <input
                     id="telephone"
                     type="tel"
                     value={form.telephone}
                     onChange={(e) => update("telephone", e.target.value)}
                     className={inputClass}
+                    placeholder=" "
                   />
+                  <label htmlFor="telephone" className={labelClass}>
+                    Numéro WhatSapp
+                  </label>
                   {errors.telephone && (
                     <p className="mt-1.5 text-sm font-medium text-danger">
                       {errors.telephone}
@@ -214,27 +250,26 @@ const Inscription = () => {
                   )}
                 </div>
 
-                <div>
-                  <label htmlFor="province" className={labelClass}>
-                    Province
-                  </label>
+                <div className="relative">
                   <select
                     id="province"
                     value={form.province}
                     onChange={(e) => update("province", e.target.value)}
                     className={`${inputClass} ${
-                      form.province ? "" : "text-foreground/80"
+                      form.province ? "" : "text-transparent"
                     }`}
                   >
-                    <option value="" disabled>
-                      Choisissez votre province
+                    <option value="" disabled className="text-foreground hidden">
                     </option>
                     {provinces.map((province) => (
-                      <option key={province} value={province}>
+                      <option key={province} value={province} className="text-foreground">
                         {province}
                       </option>
                     ))}
                   </select>
+                  <label htmlFor="province" className={`absolute left-3 bg-white px-1 font-medium transition-all pointer-events-none ${form.province ? '-top-2.5 text-xs md:text-sm text-foreground/80' : 'top-3 text-base text-foreground/50'} peer-focus:-top-2.5 peer-focus:text-xs md:peer-focus:text-sm peer-focus:text-brand-600`}>
+                    Province
+                  </label>
                   {errors.province && (
                     <p className="mt-1.5 text-sm font-medium text-danger">
                       {errors.province}
@@ -273,9 +308,10 @@ const Inscription = () => {
 
               <button
                 type="submit"
-                className="mt-10 w-full rounded-xl uppercase bg-accent px-8 py-4 text-base md:text-lg font-bold text-white shadow-lg shadow-accent/30 transition-all hover:scale-[1.02] hover:bg-orange-600"
+                disabled={loading}
+                className="mt-10 w-full rounded-xl uppercase bg-accent px-8 py-4 text-base md:text-lg font-bold text-white shadow-lg shadow-accent/30 transition-all hover:scale-[1.02] hover:bg-orange-600 disabled:opacity-70 disabled:hover:scale-100 disabled:cursor-not-allowed"
               >
-                Envoyer
+                {loading ? "Envoi en cours..." : "Envoyer"}
               </button>
 
               <p className="mt-4 text-center text-sm text-foreground/60">
@@ -283,7 +319,6 @@ const Inscription = () => {
                 dossier n&apos;est demandé.
               </p>
             </form>
-          )}
         </div>
       </section>
     </>

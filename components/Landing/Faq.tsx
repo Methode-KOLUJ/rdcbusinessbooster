@@ -152,7 +152,7 @@ const Faq = () => {
                 Prêt à vous lancer ?
               </h3>
               <p className="mb-6 text-white/90">
-              L'inscription est gratuite, rejoignez des milliers de jeunes Congolais qui bâtissent l'avenir du pays !
+              L&apos;inscription est gratuite, rejoignez des milliers de jeunes Congolais qui bâtissent l&apos;avenir du pays !
               </p>
               <a
                 href="/inscription"

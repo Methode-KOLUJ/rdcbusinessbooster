@@ -54,6 +54,10 @@ const Navbar = () => {
     return pathname === link.href;
   };
 
+  if(pathname.startsWith('/admin')){
+    return 
+  }
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
@@ -65,16 +69,14 @@ const Navbar = () => {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
         <Link href="/" className="flex items-center gap-2.5">
           <span
-            className={`grid place-items-center overflow-hidden rounded-lg shadow-md transition-colors ${
-              scrolled ? "bg-none" : "bg-white"
-            }`}
+            className={`grid place-items-center overflow-hidden  transition-colors}`}
           >
 <Image
               src="/logos/Logo.png"
               alt="RDC Agro Business Booster"
-              width={176}
-              height={44}
-              className="h-12 w-auto sm:h-14"
+              width={180}
+              height={50}
+              className={`h-12 w-auto ${scrolled ? "sm:h-14" : "sm:h-16"}`}
               priority
             />
           </span>

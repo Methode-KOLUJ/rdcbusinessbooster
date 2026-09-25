@@ -9,10 +9,22 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@tiptap/extension-image": "^3.31.3",
+    "@tiptap/extension-placeholder": "^3.31.3",
+    "@tiptap/extension-text-align": "^3.31.3",
+    "@tiptap/react": "^3.31.3",
+    "@tiptap/starter-kit": "^3.31.3",
+    "axios": "^1.20.0",
+    "date-fns": "^4.4.0",
+    "framer-motion": "^13.4.1",
     "lucide-react": "^1.33.0",
+    "mongodb": "^7.6.0",
+    "mongoose": "^9.10.2",
     "next": "16.3.1",
+    "next-cloudinary": "^6.19.3",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "resend": "^6.28.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
