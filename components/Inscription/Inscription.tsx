@@ -92,7 +92,7 @@ const Inscription = () => {
       {submitted && (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-gray-600/80 p-4 backdrop-blur-sm transition-all">
           <div className="relative w-full max-w-lg rounded-xl border border-white/20 bg-white p-8 text-center shadow-2xl sm:p-12 animate-in zoom-in-95 fade-in duration-300">
-            <span className="mx-auto mb-6 grid size-20 place-items-center rounded-full bg-green-500 text-white shadow-lg shadow-green-500/30">
+            <span className="mx-auto mb-6 grid size-20 place-items-center rounded-full bg-primary text-white shadow-lg shadow-green-500/30">
               <svg
                 className="size-10"
                 fill="none"
@@ -108,11 +108,11 @@ const Inscription = () => {
                 />
               </svg>
             </span>
-            <h2 className="mb-4 text-2xl md:text-3xl uppercase font-mono tracking-tight text-gray-900">
-              Candidature réussie !
+            <h2 className="mb-4 text-2xl md:text-3xl uppercase font-mono tracking-tight text-accent">
+              Candidature reçue !
             </h2>
             <p className="mx-auto mb-8 text-base md:text-lg leading-relaxed text-gray-600">
-              Cher(e) <strong className="text-brand-700">{form.nom}</strong>,
+              Cher(e) <span className="text-gray-600">{form.nom}</span>,
               votre inscription a bien été reçue. Vous serez
               contacté par notre équipe pour la suite du programme. Consultez votre boîte mail pour lire la confirmation.
             </p>
@@ -289,7 +289,7 @@ const Inscription = () => {
                       onChange={(e) => update("certifie", e.target.checked)}
                       className="mt-0.5 size-5 shrink-0 cursor-pointer accent-brand-600"
                     />
-                    <span className="text-sm md:text-base leading-relaxed">
+                    <span className="text-xs md:text-sm lg:text-base leading-relaxed">
                       Je certifie avoir pris connaissance de toutes les
                       directives du programme{" "}
                       <span className="font-mono">
@@ -313,11 +313,6 @@ const Inscription = () => {
               >
                 {loading ? "Envoi en cours..." : "Envoyer"}
               </button>
-
-              <p className="mt-4 text-center text-sm text-foreground/60">
-                L&apos;inscription est totalement gratuite. Aucun frais de
-                dossier n&apos;est demandé.
-              </p>
             </form>
         </div>
       </section>
