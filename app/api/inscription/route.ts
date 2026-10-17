@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
               <!-- Veuillez remplacer ces liens par les vraies URLs de vos logos -->
               <img src="https://res.cloudinary.com/dnpggdqyl/image/upload/v1790180006/android-chrome-192x192_gqu9hh.png" alt="Logo 1" height="80" style="margin-right: 15px; display: inline-block; vertical-align: middle; border-radius: 8px;" />
               <img src="https://res.cloudinary.com/dnpggdqyl/image/upload/v1790180175/Logo_jcajox.png" alt="Logo 2" height="80" style="display: inline-block; vertical-align: middle; border-radius: 8px;" />
-              <img src="https://res.cloudinary.com/dgv2vmgio/image/upload/v1792241481/android-chrome-512x512_ydrow8.png" alt="Logo 3" height="80" style="display: inline-block; vertical-align: middle; border-radius: 8px;" />
+              <img src="https://res.cloudinary.com/dgv2vmgio/image/upload/v1792242290/Agano-logo_2_z1phdy.png" alt="Logo 3" height="80" style="display: inline-block; vertical-align: middle; border-radius: 8px;" />
               </td>
           </tr>
 
