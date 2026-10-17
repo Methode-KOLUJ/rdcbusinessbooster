@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
         
         <p>
           Suivez-nous sur notre chaîne WhatSapp : 
-          <a href="#" style="color: #4CAF50; font-weight: bold;">Notre chaîne WhatSapp</a>
+          <a href="https://whatsapp.com/channel/0029VbBgcNSBfxo0C7SLc52a" style="color: #4CAF50; font-weight: bold;">Notre chaîne WhatSapp</a>
         </p>
         
         <br/>
@@ -42,7 +42,24 @@ export async function POST(req: NextRequest) {
               <!-- Veuillez remplacer ces liens par les vraies URLs de vos logos -->
               <img src="https://res.cloudinary.com/dnpggdqyl/image/upload/v1790180006/android-chrome-192x192_gqu9hh.png" alt="Logo 1" height="80" style="margin-right: 15px; display: inline-block; vertical-align: middle; border-radius: 8px;" />
               <img src="https://res.cloudinary.com/dnpggdqyl/image/upload/v1790180175/Logo_jcajox.png" alt="Logo 2" height="80" style="display: inline-block; vertical-align: middle; border-radius: 8px;" />
+              <img src="https://res.cloudinary.com/dgv2vmgio/image/upload/v1792241481/android-chrome-512x512_ydrow8.png" alt="Logo 3" height="80" style="display: inline-block; vertical-align: middle; border-radius: 8px;" />
+              </td>
+          </tr>
+
+            <tr>
+            <td style="padding-bottom: 15px;">
+              <p style="margin: 0; font-family: Arial, sans-serif; color: #333;"><strong>Nos partenaires</strong></p>
             </td>
+          </tr>
+          <tr>
+            <td>
+              <!-- NOS PARTENAIRES -->
+              <img src="https://res.cloudinary.com/dnpggdqyl/image/upload/v1788768027/ANAPI_zli8pn.jpg" alt="Logo 1" height="60" style="margin-right: 15px; display: inline-block; vertical-align: middle; border-radius: 8px;" />
+              <img src="https://res.cloudinary.com/dnpggdqyl/image/upload/v1788768026/ANADEC_nmlkrm.jpg" alt="Logo 2" height="60" style="display: inline-block; vertical-align: middle; border-radius: 8px;" />
+              <img src="https://res.cloudinary.com/dnpggdqyl/image/upload/v1788768027/BANQUE_rhbr5e.png" alt="Logo 3" height="60" style="display: inline-block; vertical-align: middle; border-radius: 8px;" />
+              <img src="https://res.cloudinary.com/dnpggdqyl/image/upload/v1788768027/FOGEC_rpmpvr.jpg" alt="Logo 4" height="60" style="display: inline-block; vertical-align: middle; border-radius: 8px;" />
+              <img src="https://res.cloudinary.com/dnpggdqyl/image/upload/v1788768027/FPI_juzrls.jpg" alt="Logo 5" height="60" style="display: inline-block; vertical-align: middle; border-radius: 8px;" />
+              </td>
           </tr>
         </table>
       </div>
