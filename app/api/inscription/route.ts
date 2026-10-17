@@ -47,7 +47,7 @@ export async function POST(req: NextRequest) {
           </tr>
 
             <tr>
-            <td style="padding-bottom: 15px;">
+            <td style="padding-bottom: 18px; padding-top : 20px">
               <p style="margin: 0; font-family: Arial, sans-serif; color: #333;"><strong>Nos partenaires</strong></p>
             </td>
           </tr>
