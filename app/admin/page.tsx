@@ -72,7 +72,7 @@ export default function AdminDashboard() {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
                     <h1 className="text-2xl font-bold text-gray-900">Candidatures</h1>
-                    <p className="text-gray-500">Gérez les inscriptions au programme.</p>
+                    <p className="text-gray-500">Gestion des inscriptions au programme.</p>
                 </div>
                 <div className="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
                     <div className="p-3 bg-blue-50 text-blue-600 rounded-xl">

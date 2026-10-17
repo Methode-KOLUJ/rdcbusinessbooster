@@ -73,7 +73,7 @@ export default function NewsletterPage() {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
                     <h1 className="text-2xl font-bold text-gray-900">Newsletter</h1>
-                    <p className="text-gray-500">Envoyez des mises à jour aux candidats inscrits.</p>
+                    <p className="text-gray-500">Envoi des mises à jour aux candidats.</p>
                 </div>
                 <div className="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
                     <div className="p-3 bg-purple-50 text-purple-600 rounded-xl">
